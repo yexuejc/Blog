@@ -6,7 +6,7 @@
     <atom:link href="https://yexuejc.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <description>记录精彩的程序人生</description>
     <generator>Solo, v3.9.0, https://solo.b3log.org</generator>
-    <lastBuildDate>Tue, 24 Mar 2020 14:42:14 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2020 14:59:56 +0800</lastBuildDate>
     <language>zh-cn</language>
     <item>
       <title>CentOS7搭建FastDFS V5.11分布式文件系统及Java整合详细过程(二)</title>
@@ -14,9 +14,9 @@
       <description/>
       <author>yexuejc</author>
       <guid>https://yexuejc.github.io/articles/2020/03/24/1585031044036.html</guid>
-      <category>GitHub</category>
       <category>开源</category>
       <category>教程</category>
+      <category>GitHub</category>
       <category>转载</category>
       <pubDate>Tue, 24 Mar 2020 14:39:49 +0800</pubDate>
     </item>
@@ -26,9 +26,9 @@
       <description/>
       <author>yexuejc</author>
       <guid>https://yexuejc.github.io/articles/2020/03/24/1585021762360.html</guid>
-      <category>教程</category>
-      <category>转载</category>
       <category>GitHub</category>
+      <category>转载</category>
+      <category>教程</category>
       <pubDate>Tue, 24 Mar 2020 14:07:02 +0800</pubDate>
     </item>
     <item>
@@ -47,9 +47,9 @@
       <author>yexuejc</author>
       <guid>https://yexuejc.github.io/articles/2020/02/23/1582446217337.html</guid>
       <category>Internet</category>
-      <category>开源</category>
       <category>踩坑之路</category>
       <category>教程</category>
+      <category>开源</category>
       <pubDate>Sun, 23 Feb 2020 16:50:45 +0800</pubDate>
     </item>
     <item>
@@ -83,8 +83,8 @@
       <description/>
       <author>yexuejc</author>
       <guid>https://yexuejc.github.io/articles/2019/12/04/1575427115999.html</guid>
-      <category>转载</category>
       <category>vue</category>
+      <category>转载</category>
       <pubDate>Wed, 04 Dec 2019 10:40:06 +0800</pubDate>
     </item>
     <item>
@@ -93,9 +93,9 @@
       <description/>
       <author>yexuejc</author>
       <guid>https://yexuejc.github.io/articles/2019/12/03/1575345084333.html</guid>
+      <category>互联网</category>
       <category>转载</category>
       <category>Internet</category>
-      <category>互联网</category>
       <pubDate>Tue, 03 Dec 2019 15:27:07 +0800</pubDate>
     </item>
     <item>
@@ -125,8 +125,8 @@
 </ol>]]></description>
       <author>yexuejc</author>
       <guid>https://yexuejc.github.io/my-github-repos</guid>
-      <category>GitHub</category>
       <category>开源</category>
+      <category>GitHub</category>
       <pubDate>Tue, 12 Nov 2019 10:36:44 +0800</pubDate>
     </item>
   </channel>
