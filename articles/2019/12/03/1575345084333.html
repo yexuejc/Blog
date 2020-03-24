@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>全球 IPv4 地址耗尽，IPv6 来了！ - 夜雪剑辰[yexuejc] 的个人博客</title><meta name="description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/><meta property="og:description" content="A small and beautiful blogging system. 一款小而美的博客系统。"/>    <meta name="keywords" content="maxf,yexuejc,yexue,Solo,Java,博客,开源,springboot,spring,postgresql,maven,mysql"/><link rel="dns-prefetch" href="https://yexuejc.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://yexuejc.github.io"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-32.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-32.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-32.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="全球 IPv4 地址耗尽，IPv6 来了！ - 夜雪剑辰[yexuejc] 的个人博客"/><meta property="og:site_name" content="夜雪剑辰[yexuejc] 的个人博客"/><meta property="og:url"      content="https://yexuejc.github.io/articles/2019/12/03/1575345084333.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-32.png"/><link rel="search" type="application/opensearchdescription+xml" title="全球 IPv4 地址耗尽，IPv6 来了！ - 夜雪剑辰[yexuejc] 的个人博客" href="/opensearch.xml"><link href="https://yexuejc.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://yexuejc.github.io/manifest.json">        <link rel="canonical" href="https://yexuejc.github.io/articles/2019/12/03/1575345084333.html">        <link rel="stylesheet"
+              href="https://yexuejc.github.io/skins/Pinghsu/css/base.css?1585029083062"/>
+            <link rel="prev" title="12招教你玩转信用卡" href="https://yexuejc.github.io/articles/2019/11/12/1573528543797.html">
+            <link rel="next" title="一个鲜为人知的高性能组件注册及实现组件排序技巧" href="https://yexuejc.github.io/articles/2019/12/04/1575427115999.html">
+    </head>
+<body>
+<header class="header">
+    <div class="wrapper">
+        <a href="https://yexuejc.github.io" rel="start" class="header__logo">
+            <img src="https://img.hacpai.com/avatar/1542072897263?imageView2/1/w/128/h/128/interlace/0/q/100"/>
+            夜雪剑辰[yexuejc] 的个人博客
+        </a>
+
+        <nav class="header__nav mobile__none">
+            <a href="https://yexuejc.github.io/tags.html" rel="section">
+                Tags
+            </a>
+            <a href="https://yexuejc.github.io/archives.html">
+                Archives
+            </a>
+            <a rel="archive" href="https://yexuejc.github.io/links.html">
+                Links
+            </a>
+        </nav>
+
+        <div class="header__bar fn__none" onclick="$(this).next().slideToggle()">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                <path fill="#444" d="M0 3h20v2h-20v-2zM0 9h20v2h-20v-2zM0 15h20v2h-20v-2z"></path>
+            </svg>
+        </div>
+        <main class="header__menu fn__none">
+            <ul>
+                    <li>
+                        <a href="https://gitee.com/yexuejc" target="_blank" rel="section">
+                            码云
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/my-github-repos" target="_self" rel="section">
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://git.yexuejc.club/yexuejc" target="_blank" rel="section">
+                            Gitea
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.jianshu.com/u/3985ce4495d0" target="_blank" rel="section">
+                            简书
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://yexuejc.github.io/tags.html" rel="section">
+                        Tags
+                    </a>
+                </li>
+                <li>
+                    <a href="https://yexuejc.github.io/archives.html">
+                        Archives
+                    </a>
+                </li>
+                <li>
+                    <a rel="archive" href="https://yexuejc.github.io/links.html">
+                        Links
+                    </a>
+                </li>
+                <li>
+                    <a rel="alternate" href="https://yexuejc.github.io/rss.xml" rel="section">
+                        RSS
+                    </a>
+                </li>
+            </ul>
+        </main>
+    </div>
+</header><main id="pjax" class="fn__flex-1">
+    
+    <div class="post wrapper wrapper--miner">
+        <h2 class="item__title">
+            <a rel="bookmark" href="https://yexuejc.github.io/articles/2019/12/03/1575345084333.html">
+                全球 IPv4 地址耗尽，IPv6 来了！
+            </a>
+        </h2>
+        <div class="ft__fade item__meta">
+                Updated on
+            <time>
+                Dec 3, 2019
+            </time>
+                in <a href="https://yexuejc.github.io/category/jt">软文</a>
+            with <span data-uvstaturl="https://yexuejc.github.io/articles/2019/12/03/1575345084333.html">33</span> views
+                and <a href="#b3logsolocomments"><span data-uvstatcmt="1575345084333">0</span> comments</a>
+        </div>
+        <div class="item__tags">
+                <a rel="tag" class="tag tag--0" href="https://yexuejc.github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91">
+                    <b># 互联网</b>
+                </a>
+                <a rel="tag" class="tag tag--1" href="https://yexuejc.github.io/tags/%E8%BD%AC%E8%BD%BD">
+                    <b># 转载</b>
+                </a>
+                <a rel="tag" class="tag tag--2" href="https://yexuejc.github.io/tags/Internet">
+                    <b># Internet</b>
+                </a>
+        </div>
+        <div class="vditor-reset">
+            <p><img src="https://img.hacpai.com/bing/20180509.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" alt=""></p>
+<p>就在昨天，2019 年 11 月 26 日，全球 43 亿个 IPv4 地址正式耗尽，很多人表示忧虑。不过不用担心，IPv4 的下一代 IP 协议 IPv6 将会从根本上解决 IPv4 地址耗尽的问题。</p>
+<p>下面通过一篇长文来了解下什么是 IPv6。</p>
+<p><strong>主要内容包括：</strong></p>
+<ol>
+<li>
+<p><strong>IPv6 的基本概念</strong></p>
+</li>
+<li>
+<p><strong>IPv6 在 Linux 操作系统下的实现</strong></p>
+</li>
+<li>
+<p><strong>IPv6 的实验</strong></p>
+</li>
+<li>
+<p><strong>IPv6 的过渡技术介绍</strong></p>
+</li>
+<li>
+<p><strong>IPv6 在 Linux 平台下 socket 编程应该注意的问题</strong></p>
+</li>
+<li>
+<p><strong>实现简易版 TGW 支持 IPv6 雏形 demo</strong></p>
+</li>
+</ol>
+<h2 id="toc_h2_0">IPv6 的基本概念</h2>
+<p>2017 年 11 月 26 日，中共中央办公厅和国务院办公厅印发了《推荐互联网协议第六版（IPv6）规模部署行动计划》，并发出通知，要求各地区各部门结合实际认真贯彻落实。这条新闻传达了一个很重要的信息：这个是推进中国 IPv6 发展的战略总动员令。</p>
+<p>值得说的是，目前我们接触得比较多的主流操作系统内核，已经很好地支持 IPv6 协议栈，<br>
+例如：</p>
+<ul>
+<li>Windows：windows 7、windows 8.x、windows 10，默认开启 IPv6</li>
+<li>Linux：内核 2.6.x、内核 3.x、内核 4.x 已经支持 IPv6（需要手动开启）</li>
+</ul>
+<p>IOS：IOS9 开始已经支持 IPv6 Only，2016 年苹果已经强制要求 app 必须支持 IPv6</p>
+<p>本文提到的 IPv6 节点，没有特殊说明，一般指的是纯 IPv6 节点（IPv6 Only），也就是只支持 IPv6 协议栈；IPv4 节点，是指纯 IPv4 的节点，也就是只支持 IPv4 协议栈；如果节点支持 IPv6 和 IPv4 双栈，会指明是双栈节点。</p>
+<p><strong>IPv6 采用 128 位的地址长度拥有更大的地址空间</strong>，首先我们先来认识一下 IPv6 到底长成什么样子。</p>
+<h3 id="toc_h3_1">初识 IPv6</h3>
+<p><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203032549-81585819.jpg" alt=""></p>
+<p>上图是我们最熟悉的 ping 的 IPv6 版本 ICMPv6。可以看到，IPv6 数据报文和 IPv4 有很大的差别：</p>
+<ul>
+<li>数据链路层（L2）的 type 字段标识为 0x86dd，表示承载的上层协议是 IPv6</li>
+</ul>
+<p>IPv4 对比：type 字段为 0x0800</p>
+<ul>
+<li>IPv6 的头部字段，和 IPv4 差别巨大**（可以猜测到，IPv6 和 IPv4 无法兼容）**</li>
+</ul>
+<p>IPv6 的报文头部格式如下：</p>
+<p><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203033248-8e115775.jpg" alt=""></p>
+<p>IPv6 报文头部更精简了，字段更少了，对比起 IPv4，有以下几个地方值得注意：</p>
+<ul>
+<li>
+<p>IPv6 报文头部是定长（固定为 40 字节），IPv4 报文头部是变长的。这个意味着，写代码处理 IPv6 数据报文的效率会提高很多：）</p>
+</li>
+<li>
+<p>IPv6 中 Hop Limit 字段含义类似 IPv4 的 TTL。</p>
+</li>
+<li>
+<p>IPv6 中的 Traffic Class 字段含义类似 IPv4 中的 TOS（Type Of Service）。</p>
+</li>
+<li>
+<p>IPv6 的报文头部取消了校验和字段。取消这个字段也是对 IPv4 协议的一个改进。当 IPv4 报文在网路间传输，每经过一个路由器转发就是修改 TTL 字段，就需要重新计算校验和，而由于数据链路层 L2 和传输层 L4 的校验已经足够强壮，因此 IPv6 取消这个字段会提高路由器的转发效率。值得一提的是，在 IPv6 协议下，传输层 L4 协议 UDP、TCP 是强制需要进行校验和的（IPv4 是可选的）。</p>
+</li>
+<li>
+<p>IPv6 报文头部中的 Next Header 字段表示“承载上一层的协议类型”或者“扩展头部类型”。</p>
+</li>
+</ul>
+<p><strong>这里的含义与 IPv4 有很大的差别，需要加以解释</strong>：<br>
+当 IPv6 数据报文承载的是上层协议 ICMPv6、TCP、UDP 等的时候，Next Header 的值分别为 58、6、17，这个时候和 IPv4 报文头部中的 Protocol 字段很类似。</p>
+<p>当不是以上 3 种协议类型的时候，IPv6 报文头部紧接的是扩展头部。扩展头部是 IPv6 引入的一个新的概念，每个 IPv6 的数据报文可以承载 0 个或多个扩展头部，扩展头部通过链表的形式组织起来。当 IPv6 数据报文承载着扩展头部的时候，Next Header 的数值为扩展头部的类型值。</p>
+<p>为什么要引入扩展头部这个概念，这里也是 IPv6 对 IPv4 改进的一个方面，用扩展头部取代了 IPv4 的可选项信息，精简了 IPv6 的头部，增强了 IPv6 的扩展性。有同学会不会有疑问，IPv6 的分片数据报文怎么处理？其实就是使用了 IPv6 扩展头部。我们来抓一个 UDP 分片报文来看看。</p>
+<p><img src="https://imgs.yexuejc.club/i.php?/upload/2019/12/03/20191203033429-4268922d-sm.jpg" alt="图3 IPv6分片报文"></p>
+<p>当发送一个分片 IPv6 数据报文的时候，IPv6 使用的是扩展头部的形式组织各个分片的信息，如图 IPv6 报文头部 Next Header 字段值为 44 表示存在扩展头部，扩展头部是 IPv6 分片数据信息。</p>
+<p>对比 IPv4，分片信息是记录在 IPv4 报文头部的分片字段中。</p>
+<p>IPv6 的扩展头部类型有很多种，除了上述的分片头部，还有路由头部、逐跳可选头部等，具体的可以参考 RFC2460。</p>
+<p>本章主要介绍了 IPv6 的一些很直观的认识，下面逐渐介绍 IPv6 上的基本知识和概念。</p>
+<h3 id="toc_h3_2">IPv6 的地址语法</h3>
+<p>一个 IPv6 的地址使用冒号十六进制表示方法：128 位的地址每 16 位分成一段，每个 16 位的段用十六进制表示并用冒号分隔开，例如：</p>
+<p>一个普通公网 IPv6 地址：2001:0D12:0000:0000:02AA:0987:FE29:9871</p>
+<p>IPv6 地址支持压缩前导零的表示方法，例如上面的地址可以压缩表示为：</p>
+<p>2001:D12:0:0:2AA:987:FE29:9871</p>
+<p>为了进一步精简 IPv6 地址，当冒号十六进制格式中出现连续几段数值 0 的位段时，这些段可以压缩为双冒号的表示，例如上面的地址还可以进一步精简表示为：</p>
+<p>2001:D12::2AA:987:FE29:9871</p>
+<p>又例如 IPv6 的地址 FF80:0:0:0:FF:3BA:891:67C2 可以进一步精简表示为：</p>
+<p>FE80::FF:3BA:891:67C2</p>
+<p><strong>这里值得注意的是，双冒号只能出现一次。</strong></p>
+<h3 id="toc_h3_3">IPv6 地址的号段划分和前缀表示法</h3>
+<p>IPv6 拥有 128 位巨大的地址空间，对于那么大的空间，也不是随意的划分，而是使用按照 bit 位进行号段划分（与鹅厂内部一些的 64 位 uin 改造放号的 zone 划分算法）。</p>
+<p>IPv6 的地址结构如下图：<br>
+<img src="https://imgs.yexuejc.club/i.php?/upload/2019/12/03/20191203033631-dec1664f-me.jpg" alt="图4 IPv6地址结构"></p>
+<p>例如 RFC4291 中定义了 n=48, m=16，也就是子网和接口 ID 与各占 64 位</p>
+<p>IPv6 支持子网前缀标识方法，类似于 IPv4 的无分类域间路由 CIDR 机制（注意：IPv6 没有子网掩码 mask 的概念）。使用“IPv6 地址/前缀长度”表示方法，例如：</p>
+<p>2001:C3:0:2C6A::/64 表示一个子网</p>
+<p>而 2001:C3:0:2C6A:C9B4:FF12:48BC:1A22/64 表示该子网下的一个节点地址。</p>
+<p>可以看到，一个 IPv6 的地址有子网前缀+接口 ID 构成，子网前缀由地址分配和管理机构定义和分配，而接口 ID 可以由各操作系统实现生成，生成算法后面的章节会介绍。</p>
+<h3 id="toc_h3_4">IPv6 的地址类型</h3>
+<p>IPv6 地址分三种类型</p>
+<p>1、单播，对应于 IPv4 的普通公网和私网地址</p>
+<p>2、组播，对应于 IPv4 的组播（多播）地址</p>
+<p>3、任播，IPv6 新增的地址概念类型</p>
+<p>IPv6 没有广播地址，用组播地址实现广播的功能。实际上我们工作和生活最可能最多接触的就是单播地址，接下来本文重点会讲解单播地址的种类。组播和任播地址有兴趣的同学自行查阅相关 RFC 和文献。</p>
+<h3 id="toc_h3_5">IPv6 单播地址</h3>
+<p>注意，大家如果在网上搜索 IPv6 的地址，可能都是千篇一律的把所有“出现过”的单播地址介绍出来，其实有一些单播地址类型已经在相关的 RFC 中被废除或者不建议使用，而本节会指出这类地址。同时，在介绍单播地址的时候，尽量与 IPv4 中对应的或者相类似的概念做对比，加深理解。</p>
+<p>IPv6 单播地址有以下几种：</p>
+<p><strong>1、全球单播地址</strong><br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203033856-a9f58262.jpg" alt="图5 IPv6全球单播地址结构"></p>
+<p>前缀 2000::/3，相当于 IPv4 的公网地址（IPv6 的诞生根本上就是为了解决 IPv4 公网地址耗尽的问题）。这种地址在全球的路由器间可以路由。</p>
+<p><strong>2、链路本地地址</strong><br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203033921-9f12638c.jpg" alt="图6 链路本地地址结构"></p>
+<p>前缀 FE80::/10，顾名思义，此类地址用于同一链路上的节点间的通信，主要用于自动配置地址和邻居节点发现过程。Windows 和 Linux 支持或开启 IPv6 后，默认会给网卡接口自动配置一个链路本地地址。也就是说，一个接口一定有一个链路本地地址。如下图：<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203034025-8b922b30.jpg" alt="图7 Linux下查看链路本地地址"><br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203034340-fbd27d4d.jpg" alt="图8 Windows下查看链路本地地址"></p>
+<p>值得说的是，每个接口必须至少有一个链路本地地址；每个接口可以配置 1 个以上的单播地址，例如一个接口可以配置一个链路本地地址，同时也可以配置一个全球单播地址。</p>
+<p>注意，很容易会把链路本地地址和 IPv4 的私网/内网地址对应起来，其实链路本地地址对应于 IPv4 的 APIPA 地址，也就是 169.254 开头的地址（典型场景就是 windows 开启自动获取地址而获取失败后自动分配一个 169.254 的地址）。而 IPv4 私网对应于 IPv6 的什么地址，后面会介绍。</p>
+<p>特别地，在 IPv6 socket 编程中，可以使用链路本地地址编程通信，但是需要增加一些额外的参数（这是一个小坑），在后面介绍编程的章节会介绍。</p>
+<p><strong>3、唯一本地地址</strong><br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203034355-565ba8c5.jpg" alt="图9 唯一本地地址结构"></p>
+<p>前缀 FC00::/7，相当于 IPv4 的私网地址（10.0.0.0、172.16.0.0、192.168.0.0），在 RFC4193 中新定义的一种解决私网需求的单播地址类型，用来代替废弃使用的站点本地地址。</p>
+<p>可能看到这里，有同学会跳出来说：IPv6 不是为了解决 IPv4 地址耗尽的问题吗，既然 IPv6 的地址空间那么大，可以为每一个网络节点分配公网 IPv6 的节点，那为什么 IPv6 还需要支持私网？这里需要谈谈对 IPv6 下私网支持的认识。</p>
+<p>在 IPv4 中，利用 NAT 技术私网内的网络节点可以使用统一的公网出口访问互联网资源，大大节省了 IPv4 公网地址的消耗（IPv6 推进缓慢的原因之一）。另一方面，由于默认情况下私网内节点与外界通信的发起是单向的，网络访问仅仅能从私网内发起，外部发起的请求会被统一网关或者防火墙阻隔掉，这样的网络架构很好的保护了私网内的节点安全性和私密性。可以设想一下，如果鹅厂内部每台办公电脑都配置了 IPv6 的公网地址上网，是多么可怕的事情，每台办公电脑都会面临被黑客入侵的威胁（肉鸡真多）。</p>
+<p>因此，在安全性和私密性要求下，IPv6 中同样需要支持私网，并且也需要支持 NAT。在 Linux 内核 3.7 版本开始加入对 IPv6 NAT 的支持，实现的方式和 IPv4 下的差别不大（Linux 内核代码中变量和函数的命名几乎就是 ctrl+c 和 ctrl+v 过来的-_-||）。</p>
+<p><strong>4、站点本地地址</strong></p>
+<p>前缀 FEC9::/48，以前是用来部署私网的，<strong>但 RFC3879 中已经不建议使用这类地址</strong>，建议使用唯一本地地址。大家知道有这么一回事就可以了。网上还有很多文章还提到这种地址，但是没有说明这种地址已经不再使用。</p>
+<p><strong>5、特殊地址：回环地址</strong></p>
+<p>0:0:0:0:0:0:0:1 或::1，等同于 IPv4 的 127.0.0.1</p>
+<p><strong>6、过渡地址：内嵌 IPv4 地址的 IPv6 地址</strong></p>
+<p>就是在 IPv6 的某一些十六进制段内嵌这 IPv4 的地址，例如 IPv6 地址中 64:ff9b::10.10.10.10，此 IPv6 地址最后 4 个字节内嵌一个 IPv4 的地址，这类地址主要用于 IPv6/IPv4 的过渡技术中。</p>
+<p><strong>一、IPv4 兼容地址</strong></p>
+<p>0:0:0:0:0:0:w.x.y.z 或::w.x.y.z（其中 w.x.y.z 是点分十进制的 IPv4 地址）。<strong>但在 RFC4291 中已经不推荐使用这类地址</strong>，大家知道有这么一回事就可以了。</p>
+<p><strong>二、过渡地址：IPv4 映射地址</strong></p>
+<p>0:0:0:0:0:FFFF:w.x.y.z 或::FFFF:w.x.y.z（其中 w.x.y.z 是点分十进制的 IPv4 地址），用于 IPv6 地址表示 IPv4 地址。主要用于某些场景下 IPv6 节点与 IPv4 节点通信，Linux 内核对这类地址很好地支持，在后面编程和内核分析的章节会分析使用过程。</p>
+<p><strong>三、过渡地址：特定过渡技术地址</strong></p>
+<p>6to4 地址、ISATAP 地址、Teredo 地址主要用于对应的过渡技术的地址，在后面介绍过渡技术的时候会介绍。</p>
+<h3 id="toc_h3_6">IPv6 接口 ID 生成算法</h3>
+<p>从前面的介绍中可以看出，IPv6 单播地址是由前缀（64 位）+接口 ID（64 位）组成。接口 ID 的生成算法主要有以下几种：</p>
+<p>1、根据 RFC4291 定义，接口 ID 可以从 EUI-64 地址生成。</p>
+<p>详细算法可以查看 regli 同学的 PPT 第 14 页。</p>
+<p>2、为了可以具备某种程度的匿名信，接口 ID 可以使用一个随机分配的，windows 操作系统默认就是使用这种生成算法，Linux 下也是默认开启这个算法。</p>
+<p>3、使用状态化的自动配置技术分配，例如 DHCPv6 分配。</p>
+<p>4、手工配置。</p>
+<h3 id="toc_h3_7">IPv6 地址配置</h3>
+<p>前面对 IPv6 的地址、前缀、接口等等做了介绍，接下来就是要介绍一个接口如何配置 IPv6 地址。IPv6 一个比 IPv4 更厉害的方面，就是可以自动配置地址，甚至这个配置过程不需要 DHCPv6（在 IPv4 中是 DHCPv4）这样的地址配置协议。最典型的例子就是，只要开启了 IPv6 协议栈的操作系统，每个接口就能自动配置了链路本地地址，这个是和 IPv4 最重要的区别之一。</p>
+<p>IPv6 的地址配置有以下几种：</p>
+<p>1、只要开启了 IPv6 协议栈，接口自动分配链路本地地址。</p>
+<p>2、无状态自动配置地址（RFC2462），后面会有实验演示。</p>
+<p>3、有状态自动配置地址，例如 DHCPv6。</p>
+<p>4、手动配置。</p>
+<h3 id="toc_h3_8">IPv6 的域名解析</h3>
+<p>由于 IPv6 的地址扩展为 128 位，比 IPv4 的更难书写和记忆，因此 IPv6 下的 DNS 变得尤为重要。IPv6 的的 DNS 资源记录类型为 AAAA（又称作 4A），用于解析指向 IPv6 地址的完全有效域名。下面是一个示例：</p>
+<p>Hostipv6.example.wechat.com IN AAAA 2001:db8:1::1</p>
+<p>IPv6 下的域名解析可以认为是 IPv4 的扩展，详细可以查看 RFC3596。</p>
+<h2 id="toc_h2_9">Linux 内核 IPv6 架构简析</h2>
+<p>本文后面主要的分析都是基于 Linux，会有涉及关于 Linux 内核对 IPv6 的实现。主要是因为，现在 IPv6 的参考资料不多，除了与 IPv6 相关的 RFC 之外，还有少数可以参阅的 IPv6 国外文献，而 Linux 内核一直都与跟随着 IPv6 的协议更新和变化，Linux 内核 IPv6 的实现是十分重要的参考材料之一。而且从事后台开发工作主要也是在 Linux 平台下，熟悉 Linux 下 IPv6 的实现也是为以后的工作做知识储备。</p>
+<p>PS：客户端开发的同学可以参考各自平台的文档………….</p>
+<p>Linux 在很早之前就已经开始支持 IPv6，目前我们接触最多的 Linux 内核版本都很好地支持 IPv6，同时也是支持 IPv4/IPv6 双栈体系。在 Linux 操作系统中，IPv4 是默认必须开启，IPv6 是可选编译和配置开启。</p>
+<p>例如在编译内核的时候，需要选择 IPv6 编译选项才支持 IPv6<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203034711-aa525261.jpg" alt="图10 Linux内核编译支持IPv6"><br>
+当开启支持 IPv6 的 Linux 的内核网络双栈的结构，如下图：<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203034722-4f912d29.jpg" alt="图11 Linux内核双栈架构"><br>
+Linux 内核中，IPv6 协议栈与 IPv4 协议栈并行关系。IPv6 和 IPv4 完全是两套不一样的代码实现。IPv6 完整的协议栈逻辑模块包括：</p>
+<p>1、网络层 IPv6，核心逻辑：IPv6 路由子系统</p>
+<p>2、传输层 TCP/UDP 实现：TCPv6、UDPv6</p>
+<p>3、控制报文协议 ICMPv6，这里值得一提的是 ICMPv6 在 IPv6 协议中的地位十分重要。</p>
+<p>ICMPv6 不仅提供了与 ICMPv4 相同的服务诊断功能，例如报告数据包的错误和提供简单的 echo 服务，ICMPv6 是 IPv6 中邻居发现协议的重要组成部分，用于管理链路上的点到点的通信。</p>
+<p>4、邻居子系统的实现：邻居发现协议 NDP（对应于 IPv4 里面的 ARP 协议）</p>
+<p>5、其他高级实现（IPv6 NAT、IPv6 隧道、iPv6 IPSec 等）</p>
+<p>由于我们平时的开发工作在应用层，以上 1-4 是将会接触得最多。</p>
+<h2 id="toc_h2_10">IPv6 实验</h2>
+<p>本章我们通过实验，加深对 IPv6 的认识。这里的实验没有使用真实现网的 IPv6 接入点（目前国内绝大部分接入点都是教育网），而实验的目的主要是观察 IPv6 的数据包结构、IPv6 的路由配置等，所以决定自己通过搭建中间路由器、应用服务器的方式做实验，便于抓包和代码分析。</p>
+<p>客户端：windows 7</p>
+<p>路由器：中间路由器使用自己编译和搭建的 Linux 系统（内核 2.6.32.27）</p>
+<p>应用服务器：Ubuntu16.04LTS 版本。</p>
+<p>为什么要使用自己编译的 Linux 作为路由器？因为 IPv6 的实践类能参考的文献比较少，而 Linux 内核的 IPv6 模块是最重要的参考资源之一，在实践中遇到问题可以使用打 LOG 和分析代码的方法解决。</p>
+<h3 id="toc_h3_11">1、无状态自动配置地址实验</h3>
+<p>IPv6 地址的获取是最重要的环节之一。本实验使用开源的无状态自动配置服务 radvd 进行实验。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203035030-ae15213e.jpg" alt=""><br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203035040-c6bae37a.jpg" alt=""></p>
+<p>无状态自动配置过程：</p>
+<p>1、由链路上的主机向链路发起“路由请求”报文，这个报文是以组播协议发送，寻找链路上最合适的路由器。</p>
+<p>2、路由器收到请求会返回“路由通告”报文，报文里面带着本链路的地址前缀信息主机将接收到的前缀和自身的接口 ID，组成完整的新地址。</p>
+<p>3、主机尝试使用新地址发起地址重复检测，检测链路上是否有其他主机也是这个地址，如果有，就停止使用该地址；如果没有，就启用这个新地址。</p>
+<p>可以看到无状态自动配置过程十分简易（对比 DHCPv4 和 DHCPv6 来说），实际上，无状态自动配置可以单独组网使用，也可以配合有状态自动配置一般会配合使用，加强网络节点管理。涉及自动配置和地址检测等更多细节，可以查阅 RFC1971、RFC4861。</p>
+<h3 id="toc_h3_12">2、IPv6 静态路由配置实验</h3>
+<p>本次实验主要是了解 windows 和 linux 的静态路由配置。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203061343-78363e1a.jpg" alt=""><br>
+由于各自的网络前缀（网段）不一致，在不使用默认路由的情况下，我们尝试配置路由让客户端可以访问到服务器。</p>
+<p>一、Windows 7 配置静态路由：</p>
+<p>去往服务器的 2001:db8:5::/64 网段的路由</p>
+<p><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203061353-598e7fb2.jpg" alt=""></p>
+<p>二、路由器 1 配置</p>
+<p><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203061402-6afac554.jpg" alt=""></p>
+<p>三、路由器 2 配置</p>
+<p><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203061725-e125ebf1.jpg" alt=""></p>
+<p>四、服务器静态路由配置</p>
+<p><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203061733-0d8be9ce.jpg" alt=""></p>
+<p>五、结果</p>
+<p><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203061740-82093680.jpg" alt=""></p>
+<p>客户端可以顺利 ping 通服务器。可以看到，IPv6 下的路由配置，无论是 windows 还是 linux，与 IPv4 的配置差别不大，熟悉 IPv4 各个平台路由配置的同学可以很快上手 IPv6 的路由配置。</p>
+<h3 id="toc_h3_13">3、IPv6 的 web 服务</h3>
+<p>复用 2 的架构，在服务器端部署一个 web 服务，在客户端访问该 web 服务。web 服务没有选择像 apache 或者 nginx 这样的庞然大物，而选择了很轻量的 boa。原因是 boa 虽然原始支持 IPv6，但是我想粗暴的把所有 IPv4 的 socket 套接字都替换成 IPv6 版本，尝试做一个自定义的升级。结果需要改动的代码非常少，不超过 20 行，boa 就能完全支持 IPv6。</p>
+<p>配合实验，写了一个简单的 CGI，只是在版面 echo 字符串。如下图：<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203061748-448a1880.jpg" alt=""></p>
+<p><strong>这里值得注意的是，在浏览器中使用 IPv6 的地址访问 web 资源，IPv6 的地址必须要使用中括号“[]”包起来。</strong></p>
+<p><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203061757-adf7dd13.jpg" alt=""></p>
+<p>从 Server 端抓包看，IPv6 下的 Web 服务 http 报文，除了网络层 L3 的报文头部不一样之外，其余的都和 IPv4 版本的没有太大差别差别。</p>
+<p><strong>4、IPv6 的过渡技术实验</strong></p>
+<p><strong>这部分将在过渡技术介绍中一起实验。</strong></p>
+<h2 id="toc_h2_14">IPv6 的过渡技术</h2>
+<p>IPv6 的提出，最重要的目的就是解决公网 IPv4 耗尽的问题，而且 IPv6 协议的设计就考虑到了更加好的效率、安全、扩展等方面，可以那么说，IPv6 是未来网络发展的大趋势。但为什么 IPv6 已经发展了十几年了，目前在我们的工作和生活中还是比较少接触和使用。这里的原因是非常的复杂，有技术上障碍，因为 IPv6 和 IPv4 是两个完全不兼容的协议（在极少数的特定场景可以实现兼容），如果要从支持 IPv4 升级到 IPv6，无论是应用程序用客户端、服务器程序端、路由器等等，都要同时支持 IPv6 才能解决问题，这个的升级改造需要花费的成本是巨大的。而且，正是由于技术上的升级花费大量的人力物力，无论是运营商还是互联网服务商，一方面要重视用户的体验问题，这个肯定不能强制客户更新换代硬件设备和软件，另一方面也要维护自身的投资和利益，更愿意去选择利用现有技术降低 IPv4 地址耗尽带来的压力，例如 NAT 的广泛应用，就是 IPv6 推广使用的一个重要的“障碍”。</p>
+<p>由上所述，IPv4 升级到 IPv6 肯定不会是一蹴而就的，是需要经历一个十分漫长的过渡阶段（用我厂通用的术语说，就是 IPv4 升级 IPv6 这个灰度的时间非常长），要数十年的时间都不为过。现阶段，就出现了 IPv4 慢慢过渡到 IPv6 的技术（或者叫过渡时期的技术）。过渡技术要解决最重要的问题就是，如何利用现在大规模的 IPv4 网络进行 IPv6 的通信。</p>
+<p>要解决上面的问题，这里主要介绍 3 种过渡技术：</p>
+<p>1、双栈技术</p>
+<p>2、隧道技术</p>
+<p>3、转换技术（有一些文献叫做翻译技术）</p>
+<p>本章节会对以上的过渡技术，选取几个典型的、我们未来最有机会接触到的具体的过渡技术结合实验观察过渡技术的具体实现和数据包的表现形式。</p>
+<h3 id="toc_h3_15">双栈技术</h3>
+<p>这种技术其实很好理解，就是通信节点同时支持 IPv4 和 IPv6 双栈。例如在同一个交换机下面有 2 个 Linux 的节点，2 个节点都是 IPv4/IPv6 双栈，节点间原来使用 IPv4 上的 UDP 协议通信传输，现在需要升级为 IPv6 上的 UDP 传输。由于 2 个节点都支持 IPv6，那只要修改应用程序为 IPv6 的 socket 通信基本达到目的了。</p>
+<p>上面的例子在局域网通信的改造是很容易的。但是在广域网，问题就变得十分复杂了。因为主要问题是在广域网上的 2 个节点间往往经过多个路由器，按照双栈技术的部署要求，之间的所有节点都要支持 IPv4/IPv6 双栈，并且都要配置了 IPv4 的公网 IP 才能正常工作，这里就无法解决 IPv4 公网地址匮乏的问题。因此，双栈技术一般不会直接部署到网络中，而是配合其他过渡技术一起使用，例如在隧道技术中，在隧道的边界路由器就是双栈的，其他参与通信的节点不要求是双栈的。</p>
+<h3 id="toc_h3_16">隧道技术</h3>
+<p>当前的网络是以 IPv4 为主，因此尽可能地充分利用 IPv4 网络进行 IPv6 通信是十分好的手段之一。隧道技术就是这样子的一种过渡技术。</p>
+<p>隧道将 IPv6 的数据报文封装在 IPv4 的报文头部后面（IPv6 的数据报文是 IPv4 的载荷部分），IPv6 通信节点之间传输的 IPv6 数据包就可以穿越 IPv4 网络进行传输。隧道技术的一个很重要的优点是透明性，通过隧道进行通信的两个 IPv6 节点（或者节点上的应用程序）几乎感觉不到隧道的存在。</p>
+<h1 id="toc_h1_17"><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203062430-6c0d7bc5.jpg" alt="ssss"></h1>
+<p>上图是一种典型的隧道技术：路由器-路由器隧道，两个 IPv6 网络中的主机通过隧道方式穿越了 IPv4 进行通信。其中 C 节点和 D 节点被称为边界路由器，边界路由器必须要支持 IPv4-IPv6 双栈。当 IPv6 网络 1 的主机 A 将 IPv6 数据包发给边界路由器 C，C 对 IPv6 数据包进行 IPv4 封装，然后在 IPv4 网络上进行传输，发送到边界路由器 D，D 收到 IPv4 的数据包后剥掉 IPv4 的包头，还原 IPv6 的数据包，发送到 IPv6 网络 2 的主机 B。</p>
+<p>根据隧道的出口入口的构成，隧道可以分为路由器-路由器，主机-路由器隧道、路由器-主机、主机-主机隧道等类型。</p>
+<p>隧道的类型也分为手动配置类型和自动配置类型两种，手动配置是指点对点的隧道是手动加以配置，例如手动配置点对点隧道外层的 IPv4 地址才能建立起隧道；自动配置是指隧道的建立和卸载是动态的，一般会把隧道外层的 IPv4 地址内嵌到数据包的目的 IPv6 地址里面，在隧道路由器获取该 IPv6 地址时候取出内嵌 IPv4 地址从而使用该 IPv4 地址作为隧道的对端来建立隧道。</p>
+<p>下面就介绍几种我们很可能会接触到的具体的隧道技术。</p>
+<p>在介绍具体的隧道技术前，特别要说明一下，Linux 内核原生支持一种叫做 sit（Simple Internet Transition）隧道。这个隧道专门用于 IPv6-in-IPv4 的数据封装解封和传输，应用十分之广泛，现在很多主流的 IPv6 隧道技术都能基于 sit 隧道实现。关于 sit 隧道的技术实现，可以查阅 Linux 内核源码 net/ipv6/sit.c 。</p>
+<p><strong>1、6to4 隧道</strong></p>
+<p>6to4 是当前使用得比较广泛的一种自动配置隧道技术，这种技术采用特殊的 IPv6 地址，称为 6to4 地址，这种地址是以 2002 开头，接着后面的 32 位就是内嵌的隧道对端的 IPv4 地址。当边界路由器收到这类目的地址，取出 IPv4 地址建立隧道。</p>
+<p>6to4 隧道一般用在路由器-路由器、主机-路由器、路由器-主机场景，典型的应用场景是两个 IPv6 的站点内主机通过 6to4 隧道进行相互访问。</p>
+<p>6to4 隧道的一个限制是内嵌的 IPv4 地址必须是公网地址。</p>
+<p><strong>6to4 隧道实验</strong></p>
+<p>如下图，就是本次 6to4 实验中使用的隧道架构，该架构是典型的路由器-路由器隧道，隧道两侧的 IPv6 网络对隧道的存在无感知。</p>
+<h1 id="toc_h1_18"><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203062439-cacc873d.jpg" alt="图23 6to4路由器-路由器隧道"></h1>
+<p>在 Linux 下的 sit 隧道可以自适应为 6to4 隧道。</p>
+<h1 id="toc_h1_19"><img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203062447-a113c8cb.jpg" alt="图24 Linux下配置sit隧道（6to4）"></h1>
+<p>上图就是在路由器上配置 sit 隧道的命令，因为是使用 6to4 隧道，隧道的目的端点地址是从目的地址中获取，因此只需要配置本地端点即可。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203062453-7cf5d5b2.jpg" alt="图25 浏览器通过隧道访问web服务"><br>
+配置完隧道后，使用客户端访问 web 服务，可以正常访问。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064017-63d8775c.jpg" alt="图26 web服务器端抓取http报文"><br>
+在 web 服务端抓取 http 报文，可以看到，web 服务获取到就是一个普通的 http 请问报文。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064024-f591bf73.jpg" alt="图27 隧道内抓取http报文"><br>
+在隧道内抓取 http 报文，可以看到里面的乾坤。这个不是一般的 http 报文，它比服务端抓取到的多了一层 IPv4 报文头部，是隧道的外出通信协议，隧道内层 IPv6 才是真正的数据。IPv4 报文头部中的协议字段，不是我们熟悉的 TCP(6)/UDP(17)协议，而是 IPv6-in-IPv4 专属的隧道协议类型。</p>
+<p>可以看到，经过隧道的数据报文，在隧道两端的边界路由器分别完成了隧道协议的封包和解包，在真正获取到数据的节点看来，几乎不感知隧道的存在。</p>
+<p><strong>2、ISATAP 隧道</strong></p>
+<p>ISATAP 全称是站点内自动隧道寻址协议（Intra-Site Automatic Tunnel Addressing Protocol），用来为 IPv4 网络中的 IPv6 双栈节点可以跨越 IPv4 网络访问外部的 IPv6 节点。</p>
+<p>ISATAP 隧道一般用于主机-主机、主机-路由器的场景。</p>
+<h3 id="toc_h3_20">ISATAP 隧道实验</h3>
+<p>如下图就是本次实验使用的架构，是一种典型的主机-路由器场景。实验中需要在路由器 2 上部署 radvd 服务，用于客户端进行无状态自动配置地址。Linux 下的 ISATAP 隧道也是可以使用 sit 隧道实现。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064031-3c784728.jpg" alt="图28 ISATAP主机-路由器隧道"><br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064047-66d379f0.jpg" alt="图29 Windows下配置ISATAP隧道"><br>
+实验用的客户端使用 windows 7，原生支持 ISATAP 隧道，如上图，需要进入 netsh 开启并且设置 ISATAP 的路由器地址（支持域名）。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064055-afee992b.jpg" alt="图30 ISATAP隧道中的无状态自动配置"><br>
+当客户端设置完 router 后，隧道已经建立，客户端便发起了无状态自动配置流程，可以看到上面的截图路由器通过隧道将前缀信息下发给客户端，客户端完成无状态自动配置，获取到公网 IP 地址。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064102-73980e6e.jpg" alt="图31 ISATAP隧道接口地址"><br>
+在 windows 7 上查看 ISATAP 接口，获取到公网地址。这个地址类型是 ISATAP 专用的地址结构，由 64 位全球单播路由前缀:200(0):5e5f:w.x.y.z 组成(w.x.y.z 是客户端的 IPv4 地址)。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064111-c630bd73.jpg" alt="图32 使用ISATAP隧道访问web服务"><br>
+如上图，使用 ISATAP 隧道访问 web 服务，在隧道内的数据抓包，可以看到和 6to4 的类似，这里就不再深入阐述。</p>
+<p><strong>3、Teredo 隧道</strong></p>
+<p>前面的隧道技术，主要是在 IPv4 的数据报文承载着 IPv6 的数据报文，这是一种特殊的数据包格式（IPV6-in-IPv4），不同于我们熟悉的 TCP、UDP 等传输层协议。而我们平常接触到的网络都存在于 NAT 架构中（例如我们的办公网络和家庭网络），在这种网络架构中，路由器仅对于 TCP、UDP 等传输层协议做 NAT 处理，而无法正确处理 IPv6-in-IPv4 这种报文，例如使用 ISATAP 隧道，IPv6 双栈节点与 ISATAP 路由器之前如果存在 NAT，ISATAP 建立隧道失败；6to4 隧道也会遇到同样的问题。</p>
+<p>Teredo 隧道是有微软公司主导的一项隧道技术，主要用于在 NAT 网络架构下建立穿越 NAT 的隧道。</p>
+<p>Teredo 隧道的核心思路，是将 IPv6 的数据封装成 IPv4 的 UDP 数据包，利用 NAT 对 IPv4 的 UDP 支持进行穿越 NAT 的传输，当 UDP 包到达隧道的另外一端后，再把 IPv4 的包头、UDP 包头剥离，还原 IPv6 的数据包，再进行下一步的 IPv6 数据通信转发。Teredo 节点会分配一个以 2001::/32 的前缀，而且地址中还包含 Teredo 的服务器、标志位和客户端外部映射模糊地址和端口号等信息。</p>
+<p>Teredo 的实现还会遇到 NAT 的类型不同而被限制的问题。NAT 的类型有锥形 NAT、受限制的 NAT、对称 NAT 几种，Teredo 只能在锥形 NAT 和受限制的 NAT 的环境下正常工作，而且在这两种 NAT 需要处理的逻辑又是不一样的。因此 Teredo 整体的实现会比较复杂。</p>
+<p><strong>实验环境搭建：</strong></p>
+<p>在 Linux 平台下有开源的 Teredo 实现版本：miredo。由于时间和文章篇幅的原因，而且部署 miredo 比较复杂，因此这里的实验等以后有机会再补充。</p>
+<p><strong>转换技术（有一些文献叫做：翻译技术）</strong></p>
+<p>隧道技术是比较好地解决了在很长期一段时间内还是 IPv4 网络是主流的情况下 IPv6 节点（或者双栈节点）间的通信问题。但是由于 IPv4 到 IPv6 的过渡是十分漫长的，因此也需要解决 IPv6 节点与 IPv4 节点通信的问题。协议转换技术可以用来解决这个问题。</p>
+<p>协议转换技术根据协议在网络中位置的不同，分为网络层协议转换、传输层协议转换和应用层协议转换等。协议转换技术的核心思路就是在 IPv4 和 IPv6 通信节点之间部署中间层，将 IPv4 和 IPv6 相互映射转换。</p>
+<p>我们非常熟悉的 NAT 也是一种典型的协议转换技术，是将私网 IPv4 地址映射转换为公网 IPv4 地址，这种转换技术又称为 NAT44。而我们接着要重点介绍的名为 NAT64/DNS64 的协议转换技术。</p>
+<h3 id="toc_h3_21">NAT64/DNS64</h3>
+<p>提到 NAT64/DNS64，相信做 iOS 客户端开发的同学一定非常熟悉。在 2016 年中开始，苹果要求 app 必须支持 IPv6 网络。而苹果官方提供的过渡解决方案正是 NAT64/DNS64。</p>
+<p>以下是苹果提供的技术图：<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064117-4486aae8.jpg" alt="图33 苹果提供的过渡技术解决方案"><br>
+NAT64/DNS64 分为 NAT64、DNS64 两大方面，两者需要结合使用。</p>
+<p>DNS64 在 RFC6147 中明确定义，将 IPv6 的地址记录 AAAA DNS 查询消息转换为 IPv4 的地址记录查询。当 IPv6 节点发起 DNS 请求，NAT64/DNS64 中间层同时发起 A 域名查询和 AAAA 域名查询。如果仅有 A 域名查询的 IPv4 地址响应，表明 IPv6 节点需要访问一个 IPv4 的节点，NAT64/DNS64 中间层将回应的 IPv4 地址转换为 IPv6 地址，返回给 IPv6 节点。</p>
+<p>IPv6 节点使用获取到的 IPv6 服务端地址进行访问，数据包会经过 NAT64/DNS64 中间层，中间层将 IPv6 地址映射转换为 IPv4 的地址进行访问。</p>
+<p><strong>实验环境搭建：</strong></p>
+<p>Linux 平台下有多个 NAT64 的开源软件，实现方式各有不同，有纯内核态实现的 ecdysis，也有用户态实现的 tayga。</p>
+<p>DNS64 的实现可以使用著名的开源 DNS 服务 BIND 就可以很好地支持，详细可以查看上面 2 个开源软件的搭建说明。</p>
+<p>时间的原因，还没有把 NAT64/DNS64 的开源软件研究透彻，因此这里的实践等以后有机会再补上。</p>
+<p>PS：在研究 tayga 和 miredo 源码的时候，发现了在 Linux 平台上面有一些有趣的东西，如下图，是 tayga 的软件实现框架。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064124-392dfeab.jpg" alt="图34 Linux下的一个有趣的虚拟设备"><br>
+Linux 内核自带了一个软件虚拟设备，也是一种隧道的实现(/dev/net/tun)，该设备可以实现将内核态的网络数据发送到用户态，用户态修改后再返回给内核态，用户态的进程负责完成 NAT64 这一次“偷龙转凤”操作。</p>
+<p>关于/dev/net/tun 设备的实现，可以查阅 Linux 内核源码 drivers/net/tun.c，一些著名的 VPN 软件例如 openvpn 等，都是以它作为实现基础。</p>
+<p>本章只介绍了一些典型的过渡技术，其实过渡技术种类还有很多，有一些在实验室阶段，有一些已经商用，有一些已经被废弃，但是总的来说，每一种过渡技术都是在解决特定时期特定场景下的过渡问题。</p>
+<h2 id="toc_h2_22">IPv6 编程应该注意的问题</h2>
+<p>在《IPv6 Socket 编程》一文中，ray 已经很详细介绍了 IPv6 下的 socket 编程细节和应该注意的问题。本章作为一个补充，介绍一下 IPv6 socket 编程可能还会遇到的问题。</p>
+<h3 id="toc_h3_23">1、IPv6 地址编码</h3>
+<p>IPv4 地址本质是一个 32 位整数，因此一般无论是存储层还是逻辑层，都经常将点分制的 IPv4 字符串地址转为 32 位整数使用。而在 IPv6，情况就复杂多了（可能也有同学就想到，光是原子性就很难保证了）。</p>
+<p>举一个典型的例子，现在有个需求，分别统计每个 IP 的访问频次。</p>
+<p>在 IPv4 的情况下，最简单就是 STL 用 std::map 搞定（单线程），土豪一点的可以开个 16G 的数组用空间换时间。</p>
+<p>但是在 IPv6 的场景下，那就尴尬了，IPv6 可是个 128 位整数，可以用 map 吗？可能会有人直接将原始的字符串类型的 IPv6 地址作为 key 来累计。一旦那么用，就要十分注意了。由于 IPv6 是支持前导 0 和连续 0 的压缩表示方式，而且支持英文字母大小写，例如：</p>
+<p>2001:db8:4::41</p>
+<p>2001:db8:4:0:0:0:0:0:41</p>
+<p>2001:0db8:4::41</p>
+<p>2001:DB8:4::41</p>
+<p>这 4 个都是合法的 IPv6 地址，如果将输入毫无修改地作为 key 来累计，那必须会将累计逻辑分散了，最终得不到正确的频率结果。类似的问题也在 MAC 地址（BSSID）上面，由于 MAC 地址分号间的数字前导 0 可以省略，并且也是支持大小写英文字母，所以也是会同样的问题。在微信安全中心，MAC 地址的逻辑统一转为 64 位整数处理，情况相对还好。</p>
+<p>但是到了 IPv6 有木有更好的解决办法呢？答案是肯定的，但是需要具体问题具体分析。</p>
+<p>在上面的频率例子比较优雅的做法，依然用 map 的话，可以利用自定义 key 类型解决，这个方法需要重载自定义类型的比较符号’&lt;’：<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064129-66b25df0.jpg" alt="图35 自定义IPv6地址结构"><br>
+其中 struct in6_addr 就是一个 128 位的 IPv6 地址结构体。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064135-e5d42caa.jpg" alt="图36 使用std::map实现IPv6频率"><br>
+其实还有更优雅的方式，直接将 IPv6 的地址强制转为 2 个 64 位整数来比较，if else 会写得更少一些，效率更高一些。</p>
+<p>上面说到 2 个 64 位整数，微信安全中心有一些静态的 key-value 数据查询（批量写，多次读），其中 key 是 MD5，我们将 MD5 也是作为 2 个 64 位整数来对待，将 2 个 64 位整数联合排序，写入内存，然后使用两次二分查找的方式搜索，效率非常高。在这种场景下面，IPv6 也是可以用类似的方法处理。</p>
+<p>IPv6 地址结构，以后很可能会给我们的编程或多或少带来一些“未知”的坑-_-||。</p>
+<h3 id="toc_h3_24">2、IPv6 socket“兼容”IPv4 的情况</h3>
+<p>在 IPv4 和 IPv6 共存的一个很长的时间里，在 socket 编程上不得不面对的就是 IPv6 和 IPv4 一定程度的“兼容问题”。而在文章前面有提到，IPv6 和 IPv4 和完全不兼容的两种协议，但是 IPv6 协议的地址空间更大，是可以使用 IPv6 的地址表示 IPv4 地址，例如 IPv4 映射地址，因此，在很特殊的情况下，IPv4 和 IPv6 可以实现“兼容”，但是这种兼容是很有限的。在 Linux 平台下，这种“兼容性”是如何表现的，我们这里来分析一下。</p>
+<p>在 Linux 下面，以 IPv6 下的 UDP Socket 举例：</p>
+<p>有个 UDP 协议的 Server 改造 IPv6，该 Server 机器上有一个网卡并且同时配置 IPv6 和 IPv4 地址，支持双栈。Server 进程创建 IPv6 UDP socket 套接字，绑定 Server 本地任意地址（IPv4 和 IPv6 都是以全 0 地址为绑定任意地址）。客户端是 IPv4，向这个 Server 发送 UDP 请求数据包。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064141-580cad72.jpg" alt="图37 IPv6服务收到IPv4报文"><br>
+可以看到的是，IPv6 的 socket 会正常收到客户端的数据报文，并且会将 IPv4 地址转化为映射地址，为了明确这个逻辑，我们分析 Linux 内核的实现。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064146-79029241.jpg" alt="图38 IPv6下UDP socket收到IPv4数据包内核实现"><br>
+IPv6 的 socket 收到数据包，如果是 IPv4 协议，则将来源 IPv4 的 IP 地址转为 IPv6 的 IPv4 映射地址。与实验的结果很一致。</p>
+<p>如果 Server 的 IPv6 socket 按照这个来源地址返回数据包，那么内核又是如何处理的呢？<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064151-afee992b.jpg" alt="图39 IPv6下UDP socket发送IPv4数据包内核实现"><br>
+首先内核会判断目的地址是否为 IPv6 的 IPv4 映射地址，如果是映射地址，那么要发送的数据是 IPv4 数据，直接以 IPv4 协议栈的形式发送该数据（udp_sendmsg 是 IPv4 udp 发送接口）。</p>
+<p>可以看到，Linux 内核本身对这类双栈上的改造做了一定的适配，我们可以根据内核的这种特性去进行改造工作。</p>
+<h3 id="toc_h3_25">3、使用链路本地地址</h3>
+<p>从前面的章节可以知道，IPv6 具有自动配置地址的能力。链路本地地址是 IPv6 要求在每个接口默认自动配置生成的地址，用于链路上的通信，路由器不能转发链路本地地址。除了以上提到的特征外，链路本地地址就是一个普通的 IPv6 地址，我们可以使用这类地址做 socket 编程通信。</p>
+<p>但是我们在 IPv6 Socket 编程的时候使用链路本地地址，有一个细节需要注意。<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064156-18440fc2.jpg" alt="图40 IPv6地址结构"><br>
+在 IPv6 地址结构中（对应于 IPv4 的 struct sockaddr_in），有一个我们非常陌生的字段 scope_id，这个字段在我们使用链路本地地址来编程的时候是必须要使用的，这个字段表示我们需要选择接口 ID。为什么需要需要有这么一个字段，那是因为链路本地地址的特殊性，一个网络节点可以有多个网络接口，多个网络接口可以有相同的链路本地地址，例如我们需要 bind 一个本地链路地址，这个时候就会有冲突，操作系统无法决策需要绑定的是哪个接口的本地链路地址。</p>
+<p>又例如，如果我们在直连的 2 个主机之间直接用链路本地地址 ping 的话，会 ping 失败。</p>
+<p>因此 IPv6 引入了 scope_id 来解决这个问题，scope_id 指定了使用哪个网络接口。</p>
+<p>如何查看这个网络接口（网卡）的 scope_id 是多少？</p>
+<p>一、在 Linux 下查看网络接口的 scope_id：<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064203-234cb2e7.jpg" alt="图41 Linux下查看网络接口scope id"><br>
+使用 ip addr 命令可以查看每个接口的 scope_id，如图第一列的数字就是 scope_id。</p>
+<p>二、在 windows 下查看 scope_id：<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064210-26152e4c.jpg" alt="图42 Windows下查看网路接口scope id"><br>
+最后的百分号%后面的数字就是该网络接口的 scope_id。</p>
+<p>Windows 下也可以使用 route print -6 查看接口列表，列表第一列数字就是 scope_id。</p>
+<p>因此，在使用链路本地地址编程的时候，需要把这个 scope_id 赋值到 sin6_scope_id 字段。</p>
+<p>而在使用 ping 命令的时候，需要在地址后面加上%和 scope_id 才能 ping 成功，如图：<br>
+<img src="https://imgs.yexuejc.club/upload/2019/12/03/20191203064215-505f08ce.jpg" alt="图43 使用链路本地地址ping"><br>
+关于这个 scope id，详细可以查看 RFC2553</p>
+<h2 id="toc_h2_26">总结</h2>
+<p>本文主要科普介绍了 IPv6 的基本内容，配合各种实验分析比较清晰认识了 IPv6 的各种基本概念；也介绍一些“超纲”的内容（我们的工作中很可能不会接触到），但是我觉得这类内容在技术实现上十分有趣，可以在一些技术的方法和思路上面可能会给我们一些通用的启示，例如 NAT64/DNS64 就是使用中间层来处理 IPv4 和 IPv6 互通的问题，我们的工作中也确实经常遇到类似的技术问题。</p>
+<p>IPv6 本身是一个很庞大的体系，还有很多高级内容没有介绍（IPv6-IPSec、移动 IPv6 等等）。而且查看和 IPv6 相关的 RFC，不断在做修正，Linux 内核的 IPv6 模块代码也不断有配合新的 RFC 修改来做调整，引入新的逻辑，以适应各种场景的实际需求。有兴趣的同学可以一直留意 RFC 的变化和紧跟 Linux 内核的版本发布。</p>
+<p>本文是结合各种文献和实验对 IPv6 理解的一个总结归纳，难免会有理解偏差和手抖的地方，希望各位同学熟悉的话能帮忙指出其中的错误，并且提供修改建议和意见，谢谢。</p>
+<p><em>本文作者：robintang，腾讯 WXG 后台开发工程师。转载自「 云加社区」。</em></p>
+<p><em>ps:本文转载自<a href="https://mp.weixin.qq.com/s/wMdDiu0o4JfUiqD8hAB75w" target="_blank">微信公众号： 腾讯技术工程</a>,如有侵权，请联系博主删除。</em></p>
+        </div>
+    </div>
+    <div class="post__toc">
+<ul class="article__toc">
+        <li class="toc__h2">
+            <a href="#toc_h2_0">IPv6 的基本概念</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_1">初识 IPv6</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_2">IPv6 的地址语法</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_3">IPv6 地址的号段划分和前缀表示法</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_4">IPv6 的地址类型</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_5">IPv6 单播地址</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_6">IPv6 接口 ID 生成算法</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_7">IPv6 地址配置</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_8">IPv6 的域名解析</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_9">Linux 内核 IPv6 架构简析</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_10">IPv6 实验</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_11">1、无状态自动配置地址实验</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_12">2、IPv6 静态路由配置实验</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_13">3、IPv6 的 web 服务</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_14">IPv6 的过渡技术</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_15">双栈技术</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_16">隧道技术</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#toc_h1_17"></a>
+        </li>
+        <li class="toc__h1">
+            <a href="#toc_h1_18"></a>
+        </li>
+        <li class="toc__h1">
+            <a href="#toc_h1_19"></a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_20">ISATAP 隧道实验</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_21">NAT64/DNS64</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_22">IPv6 编程应该注意的问题</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_23">1、IPv6 地址编码</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_24">2、IPv6 socket“兼容”IPv4 的情况</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_25">3、使用链路本地地址</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_26">总结</a>
+        </li>
+</ul>    </div>
+    <div class="body--gray post__gray">
+        <div class="wrapper comment">
+                <div id="b3logsolocomments"></div>
+                <div id="vcomment" style="padding: 30px 0;" data-name="yexuejc" data-postId="1575345084333"></div>
+
+            <div class="post__list fn__flex">
+                <div class="fn__flex-1">
+                    <div id="externalRelevantArticles"></div>
+                </div>
+                <div class="post__list-mid fn__flex-1">
+                    <div id="randomArticles"></div>
+                </div>
+                <div class="fn__flex-1">
+                    <div id="relevantArticles"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post__fix">
+        <div class="wrapper">
+            <span class="post__share mobile__none">
+                Share
+                <span class="tag tag--4" data-type="weibo">WeiBo</span>
+                <span class="tag tag--5" data-type="twitter">Twitter</span>
+                <span class="tag tag--6" data-type="qqz">QZone</span>
+                <span class="post__code tag tag--7"
+                      data-type="wechat"
+                      data-title="全球 IPv4 地址耗尽，IPv6 来了！"
+                      data-blogtitle="夜雪剑辰[yexuejc] 的个人博客"
+                      data-url="https://yexuejc.github.io/articles/2019/12/03/1575345084333.html"
+                      data-avatar="https://img.hacpai.com/avatar/1542072897263?imageView2/1/w/128/h/128/interlace/0/q/100">
+                    WeChat
+                    <span class="qrcode"></span>
+                </span>
+            </span>
+            <span class="post__arrow">
+                    <a href="https://yexuejc.github.io/articles/2019/11/12/1573528543797.html" rel="prev"
+                       class="vditor-tooltipped__n vditor-tooltipped"
+                       pjax-title="12招教你玩转信用卡"
+                       aria-label="旧一篇: 12招教你玩转信用卡">←</a>
+
+                    <a href="https://yexuejc.github.io/articles/2019/12/04/1575427115999.html" rel="next"
+                       class="vditor-tooltipped__n vditor-tooltipped"
+                       pjax-title="一个鲜为人知的高性能组件注册及实现组件排序技巧"
+                       aria-label="新一篇: 一个鲜为人知的高性能组件注册及实现组件排序技巧">→</a>
+                <a href="javascript:Util.goTop()" class="vditor-tooltipped__n vditor-tooltipped"
+                   aria-label="移动到顶部">↑</a>
+                <a href="javascript:Util.goBottom()" class="vditor-tooltipped__n vditor-tooltipped"
+                   aria-label="移动到底部">↓</a>
+            </span>
+        </div>
+    </div>
+    
+</main>
+<footer class="footer">
+    <div class="ft__center">
+    </div>
+    <nav class="footer__nav mobile__none">
+            <a class="ft__link" href="https://gitee.com/yexuejc" target="_blank" rel="section">
+                码云
+            </a>
+            <a class="ft__link" href="/my-github-repos" target="_self" rel="section">
+                GitHub
+            </a>
+            <a class="ft__link" href="https://git.yexuejc.club/yexuejc" target="_blank" rel="section">
+                Gitea
+            </a>
+            <a class="ft__link" href="https://www.jianshu.com/u/3985ce4495d0" target="_blank" rel="section">
+                简书
+            </a>
+        <a class="ft__link" rel="alternate" href="https://yexuejc.github.io/rss.xml" rel="section">RSS</a>
+    </nav>
+    <div class="footer__border mobile__none"></div>
+    <div class="wrapper fn__flex">
+        <div class="fn__flex-1 mobile__none">
+            <div class="ft__fade">yexuejc - 记录精彩的程序人生</div>
+            <br>
+                Open Source, Open Mind, <br/>Open Sight, Open Future!
+
+<!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
+        </div>
+
+            <div class="footer__mid fn__flex-1 mobile__none">
+                <div class="ft__fade">分类</div>
+                <br>
+                    <a href="https://yexuejc.github.io/category/js"
+                       aria-label="5 个标签"
+                       class="ft__link ft__nowrap vditor-tooltipped vditor-tooltipped__n">
+                        技术</a> &nbsp; &nbsp;
+                    <a href="https://yexuejc.github.io/category/jt"
+                       aria-label="3 个标签"
+                       class="ft__link ft__nowrap vditor-tooltipped vditor-tooltipped__n">
+                        软文</a> &nbsp; &nbsp;
+                    <a href="https://yexuejc.github.io/category/jc"
+                       aria-label="1 个标签"
+                       class="ft__link ft__nowrap vditor-tooltipped vditor-tooltipped__n">
+                        教程</a> &nbsp; &nbsp;
+            </div>
+
+        <div class="fn__flex-1 footer__copyright">
+            <a class="ft__link" href="https://yexuejc.github.io/archives.html">
+                10
+                文章
+            </a>
+           <br>
+            <span data-uvstaturl="https://yexuejc.github.io">67628</span> <span class="ft-gray">浏览</span>
+ <br>
+            &copy; 2020
+            <a class="ft__link" href="https://yexuejc.github.io">夜雪剑辰[yexuejc] 的个人博客</a>
+            <a href="http://beian.miit.gov.cn" target="_blank" style="color:white;">蜀ICP备18022847号</a>
+            <br>
+            Powered by <a class="ft__link" href="https://solo.b3log.org" target="_blank">Solo</a>
+            <br>
+            Theme Pinghsu
+            <sup>[<a class="ft__link" target="_blank" href="https://github.com/chakhsu/pinghsu">ref</a>]</sup>
+            by <a class="ft__link" href="http://vanessa.b3log.org" target="_blank">Vanessa</a>
+        </div>
+    </div>
+</footer>
+<script>
+  var Label = {
+    servePath: "https://yexuejc.github.io",
+    staticServePath: "https://yexuejc.github.io",
+    luteAvailable: false,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "3.9.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+  }
+</script>
+<script type="text/javascript" src="https://yexuejc.github.io/skins/Pinghsu/js/headroom.min.js"></script>
+<script type="text/javascript"
+        src="https://yexuejc.github.io/skins/Pinghsu/js/common.min.js?1585029083062"
+        charset="utf-8"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.6/index.css"/>
+<script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.6/index.js"></script>
+<div class="solo-kanbanniang">
+    <div class="solo-kanbanniang__tip"></div>
+    <canvas id="soloKanbanniang" width="280" height="250"></canvas>
+    <div class="solo-kanbanniang__tool">
+        <svg id="soloKanbanniangHome" viewBox="0 0 32 32" width="100%" height="100%">
+            <path d="M32 18.967l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18.516v12h-8v-8h-8v8h-8v-12l12-9z"></path>
+        </svg>
+        <svg id="soloKanbanniangRSS" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M320.364 768q0 45.728-32 77.728t-77.728 32-77.728-32-32-77.728 32-77.728 77.728-32 77.728 32 32 77.728zM612.94 838.272q1.152 16-9.728 27.424-10.272 12-26.848 12h-77.152q-14.272 0-24.576-9.44t-11.424-23.712q-12.576-130.848-105.44-223.712t-223.712-105.44q-14.272-1.152-23.712-11.424t-9.44-24.576V402.24q0-16.576 12-26.848 9.728-9.728 24.576-9.728h2.848q91.424 7.424 174.848 46.016t148 103.712q65.152 64.576 103.712 148t46.016 174.848z m292.576 1.152q1.152 15.424-10.272 26.848-10.272 11.424-26.272 11.424h-81.728q-14.848 0-25.44-10.016t-11.136-24.288q-6.848-122.848-57.728-233.44t-132.288-192-192-132.288-233.44-58.272q-14.272-0.576-24.288-11.136t-10.016-24.864V109.664q0-16 11.424-26.272 10.272-10.272 25.152-10.272h1.728q149.728 7.424 286.56 68.576t243.136 168q106.848 106.272 168 243.136t68.576 286.56z"></path>
+        </svg>
+        <svg id="soloKanbanniangChat" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M802.42709 96.163153H219.476155c-84.48109 0-154.896836 71.746044-154.896836 157.840888v393.119449c0 86.072331 70.415746 157.819398 154.896836 157.819399h214.038818V925.470963s22.526039 40.168862 64.767096 5.734608c30.965246-25.819039 126.721123-91.828428 171.775248-123.385145h132.369773c84.502579 0 154.896836-83.21526 154.896836-157.839865V251.125481c0-86.094844-70.394257-154.962328-154.896836-154.962328zM301.144176 518.002714c-39.427988 0-70.416769-31.576159-70.416769-71.746044 0-40.168862 30.988782-71.746044 70.416769-71.746044 39.426965 0 70.393233 31.577183 70.393234 71.746044 0 40.169885-30.966269 71.746044-70.393234 71.746044z m208.411657 0c-39.450501 0-70.415746-31.576159-70.415746-71.746044 0-40.168862 30.965246-71.746044 70.415746-71.746044 39.405475 0 70.394257 31.577183 70.394257 71.746044 0 40.169885-30.988782 71.746044-70.394257 71.746044z m211.203236 0c-39.426965 0-70.416769-31.576159-70.416769-71.746044 0-40.168862 30.988782-71.746044 70.416769-71.746044s70.415746 31.577183 70.415746 71.746044c-0.001023 40.169885-30.988782 71.746044-70.415746 71.746044z"></path>
+        </svg>
+        <svg id="soloKanbanniangChange" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M936.672 193.216l-226.88-64c-8.704-2.528-18.112-1.12-25.824 3.776-7.68 4.864-12.896 12.736-14.432 21.728C655.712 236.928 595.328 288 512 288c-71.424 0-142.464-103.296-163.776-143.104-7.136-13.28-22.528-19.84-37.024-15.68l-224 64C73.472 197.152 64 209.728 64 224v256a31.93 31.93 0 0 0 11.712 24.736c7.392 6.08 17.152 8.512 26.56 6.624L224 487.04V832c0 52.928 43.072 96 96 96h384c52.928 0 96-43.072 96-96V519.04l121.728 24.352c9.44 1.92 19.2-0.544 26.56-6.624C955.68 530.656 960 521.6 960 512V224c0-14.336-9.536-26.912-23.328-30.784zM672 800H352c-17.664 0-32-14.304-32-32s14.336-32 32-32h320c17.696 0 32 14.304 32 32s-14.304 32-32 32z"></path>
+        </svg>
+        <svg id="soloKanbanniangPhoto" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M898.048 258.048q23.552-1.024 46.592 9.216t40.96 27.136 28.672 39.424 10.752 46.08l0 390.144q0 24.576-10.752 47.104t-28.672 40.448-40.96 28.16-47.616 10.24l-697.344 0q-24.576 0-48.64-10.24t-42.496-27.648-29.696-40.448-11.264-48.64l0-381.952q0-22.528 10.752-45.568t28.672-41.472 39.936-30.208 44.544-11.776l63.488 0 13.312-83.968q3.072-20.48 18.432-32.768t34.816-12.288l456.704 0q19.456 0 34.304 10.752t16.896 34.304l14.336 83.968 54.272 0zM548.864 712.704q40.96 0 77.824-15.872t63.488-42.496 42.496-62.976 15.872-77.312-15.872-77.312-42.496-62.976-63.488-42.496-77.824-15.872-77.312 15.872-63.488 42.496-43.008 62.976-15.872 77.312 15.872 77.312 43.008 62.976 63.488 42.496 77.312 15.872z"></path>
+        </svg>
+        <svg id="soloKanbanniangGithub" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M1024 524.8c0 114.346667-32.554667 217.216-97.706667 308.565333-65.066667 91.306667-149.162667 154.538667-252.288 189.610667-11.989333 2.304-20.778667 0.682667-26.325333-4.778667a27.605333 27.605333 0 0 1-8.362667-20.48v-144.213333c0-44.16-11.52-76.501333-34.645333-97.024 25.344-2.730667 48.085333-6.826667 68.309333-12.288a268.629333 268.629333 0 0 0 62.72-26.666667 187.434667 187.434667 0 0 0 53.973334-45.44c14.421333-18.005333 26.197333-41.898667 35.328-71.765333 9.088-29.824 13.653333-64.128 13.653333-102.826667 0-55.125333-17.536-102.058667-52.650667-140.8 16.426667-41.429333 14.677333-87.893333-5.333333-139.392-12.458667-4.096-30.464-1.578667-54.016 7.509334a355.328 355.328 0 0 0-61.312 30.08L640 271.274667a462.336 462.336 0 0 0-128-17.749334c-43.989333 0-86.656 5.930667-128 17.749334a589.824 589.824 0 0 0-28.330667-18.432c-11.776-7.253333-30.336-16.042667-55.68-26.325334-25.344-10.24-44.416-13.312-57.301333-9.216-19.584 51.498667-21.12 97.962667-4.693333 139.434667-35.114667 38.698667-52.650667 85.632-52.650667 140.757333 0 38.698667 4.565333 72.874667 13.653333 102.485334 9.130667 29.610667 20.778667 53.546667 34.986667 71.765333 14.250667 18.218667 32.128 33.493333 53.674667 45.781333 21.546667 12.288 42.453333 21.205333 62.677333 26.666667 20.224 5.461333 43.008 9.557333 68.309333 12.288-17.749333 16.384-28.629333 39.850667-32.64 70.4a130.005333 130.005333 0 0 1-29.994666 10.24c-10.666667 2.261333-23.338667 3.413333-37.973334 3.413333-14.72 0-29.269333-4.906667-43.690666-14.677333-14.464-9.813333-26.794667-24.064-36.992-42.709333a109.226667 109.226667 0 0 0-32.341334-35.541334c-13.141333-9.130667-24.106667-14.592-33.024-16.426666l-13.312-2.048c-9.344 0-15.786667 1.024-19.328 3.072-3.584 2.090667-4.693333 4.693333-3.328 7.893333 1.28 3.157333 3.328 6.4 5.973334 9.557333 2.688 3.2 5.546667 5.930667 8.661333 8.192l4.693333 3.413334c9.770667 4.565333 19.413333 13.226667 29.013334 25.984 9.514667 12.757333 16.512 24.362667 20.992 34.858666l6.656 15.701334c5.76 17.322667 15.530667 31.317333 29.312 42.026666 13.781333 10.666667 28.672 17.536 44.672 20.48 16 2.986667 31.445333 4.565333 46.336 4.821334 14.890667 0.213333 27.221333-0.597333 36.992-2.389334l15.36-2.730666c0 17.28 0.085333 37.546667 0.298666 60.8l0.341334 36.906666a27.050667 27.050667 0 0 1-8.661334 20.48c-5.76 5.461333-14.677333 7.082667-26.666666 4.778667-103.125333-35.072-187.221333-98.261333-252.330667-189.610667C32.554667 742.058667 0 639.146667 0 524.8c0-95.232 22.869333-183.04 68.693333-263.466667A516.266667 516.266667 0 0 1 254.976 70.4C333.44 23.466667 419.114667 0 512 0c92.885333 0 178.56 23.466667 256.981333 70.4a516.266667 516.266667 0 0 1 186.368 190.976C1001.130667 341.802667 1024 429.653333 1024 524.842667z"></path>
+        </svg>
+        <svg id="soloKanbanniangClose" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M517.572566143763 1018.6748601482986C238.26554897656422 1018.6748601482986 11.897910175114305 792.2714997690043 11.897910175114305 513.0002041796496c0-279.3070171671984 226.36763880144977-505.71037754649296 505.6746559686481-505.71037754649296 279.2712955893538 0 505.6746559686481 226.40336037929444 505.6746559686481 505.71037754649296C1023.2472221124112 792.2714997690043 796.8795833109612 1018.6748601482986 517.572566143763 1018.6748601482986zM754.7281214542927 339.25044954334646c13.752807470184345-13.752807470184345 9.680547595895998-40.186775075214015-9.073280772537204-58.94060344364717l-2.143294670678079-2.1075730928334457c-18.7538283684332-18.7538283684332-45.15207439561819-22.861809820566194-58.90488186580257-9.073280772537204l-168.21291007038468 168.24863164822932-180.42968969324974-180.46541127109438c-13.967136937252159-13.967136937252159-40.72259874288353-9.823433907274534-59.72647815622916 9.216167083915742l-2.143294670678079 2.143294670678079c-19.039600991190277 19.003879413345654-23.111860865478626 45.75934121897699-9.180445506071107 59.655035000539876l180.42968969324974 180.46541127109438-176.07165719620428 176.03593561835962c-13.788529048028984 13.824250625873615-9.716269173740633 40.151053497369375 9.073280772537204 58.94060344364717l2.1075730928334457 2.1075730928334457c18.7538283684332 18.7538283684332 45.15207439561819 22.897531398410823 58.90488186580257 9.073280772537204l176.10737877404887-176.10737877404887 170.39192631890742 170.42764789675192c13.967136937252159 13.931415359407513 40.686877165038865 9.85915548511917 59.690756578384516-9.180445506071107l2.1790162485227142-2.1790162485227142c19.039600991190277-18.968157835501014 23.147582443323273-45.72361964113239 9.180445506071107-59.690756578384516l-170.39192631890742-170.42764789675192L754.7281214542927 339.25044954334646z"></path>
+        </svg>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    Util.addScript('https://yexuejc.github.io/js/page.min.js?1585029083062', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "oId": "1575345084333",
+        "blogHost": "https://yexuejc.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+Skin.initArticle()
+    });
+</script>
+
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 30ms, 2020/03/24 14:42:14 -->
